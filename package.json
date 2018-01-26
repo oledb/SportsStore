@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json": "json-server "
+    "json": "json-server data.js --port 3501 -m authMiddleware.js"
   },
   "private": true,
   "dependencies": {
