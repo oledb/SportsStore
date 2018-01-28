@@ -25,8 +25,7 @@
     </div>
 
     <div class="btn-group pull-xs-right">
-        <button *ngFor="let page of pageNumbers"
-                (click)="changePage(page)"
+        <button *counter="let page of pageCount" (click)="changePage(page)"
                 [class.active]="page == selectedPage"
                 class="btn btn-outline-primary">{{page}}</button>
     </div>
