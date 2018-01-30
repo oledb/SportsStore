@@ -12,7 +12,7 @@ const PORT = 3501;
 @Injectable()
 export class RestDataSource {
     baseUrl: string;
-    object: Observable<Product | Order | Order[]>;
+    object: Observable<Product | Order >;
     constructor(private http: Http) {
         this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
     }
