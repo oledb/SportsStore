@@ -17,35 +17,35 @@
     </div>
     <div class="form-group">
         <label>Address</label>
-        <input class="form-control" #address="ngModel" name="name" [(ngModel)]="order.address" required>
+        <input class="form-control" #address="ngModel" name="address" [(ngModel)]="order.address" required>
         <span *ngIf="submitted && address.invalid" class="text-danger">
             Please enter your address
         </span>
     </div>
     <div class="form-group">
         <label>City</label>
-        <input class="form-control" #city="ngModel" name="name" [(ngModel)]="order.city" required>
+        <input class="form-control" #city="ngModel" name="city" [(ngModel)]="order.city" required>
         <span *ngIf="submitted && city.invalid" class="text-danger">
             Please enter your city
         </span>
     </div>
     <div class="form-group">
         <label>State</label>
-        <input class="form-control" #state="ngModel" name="name" [(ngModel)]="order.state" required>
+        <input class="form-control" #state="ngModel" name="state" [(ngModel)]="order.state" required>
         <span *ngIf="submitted && state.invalid" class="text-danger">
             Please enter your state
         </span>
     </div>
     <div class="form-group">
         <label>Zip</label>
-        <input class="form-control" #zip="ngModel" name="name" [(ngModel)]="order.zip" required>
+        <input class="form-control" #zip="ngModel" name="zip" [(ngModel)]="order.zip" required>
         <span *ngIf="submitted && zip.invalid" class="text-danger">
             Please enter your zip
         </span>
     </div>
     <div class="form-group">
         <label>Country</label>
-        <input class="form-control" #country="ngModel" name="name" [(ngModel)]="order.country" required>
+        <input class="form-control" #country="ngModel" name="country" [(ngModel)]="order.country" required>
         <span *ngIf="submitted && country.invalid" class="text-danger">
             Please enter your country
         </span>
