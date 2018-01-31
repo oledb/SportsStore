@@ -23,6 +23,36 @@ export class RestDataSource {
         return this.sendRequest(RequestMethod.Get, "products").map(response => response.json());
     }
 
+    saveProduct(product: Product): Observable<Product>{
+        return this.sendRequest(RequestMethod.Post, "products",
+            product, true).map(request => request.json());
+    }
+
+    updateProduct(product): Observable<Product> {
+        return this.sendRequest(RequestMethod.Put, `products/${product.id}`, product, true)
+        .map(request => request.json());
+    }
+
+    deleteProduct(id: number): Observable<Product> {
+        return this.sendRequest(RequestMethod.Delete,  `products/${id}`,
+        null, true).map(request => request.json());
+    }
+
+    getOrders(): Observable<Order[]> {
+        return this.sendRequest(RequestMethod.Get, "orders", null, true)
+        .map(r => r.json());
+    }
+
+    deleteOrder(id: number): Observable<Order> {
+        return this.sendRequest(RequestMethod.Delete, `order/${id}`, null, true)
+        .map(r => r.json());
+    }
+
+    updateOrder(order: Order): Observable<Order> {
+        return this.sendRequest(RequestMethod.Put, `orders/${order.id}`, null, true)
+        .map(r => r.json());
+    }
+
     saveOrder(order: Order): Observable<Order> {
         return this.sendRequest(RequestMethod.Post, "orders", order).map(response => response.json());
     }

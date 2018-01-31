@@ -13,4 +13,4 @@ import { AuthService } from './auth.service';
     providers: [ ProductRepository,  Cart, Order, OrderRepository,
     { provide: StaticDataSource, useClass: RestDataSource }, RestDataSource, AuthService ]
 })
-export class ModelModule{}
+export class ModelModule { }
