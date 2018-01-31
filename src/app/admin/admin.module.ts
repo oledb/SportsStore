@@ -5,14 +5,13 @@ import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { AdminComponent } from './admin.component';
 
-let routing = RouterModule.forChild([
-    {path: 'auth', component: AuthComponent },
-    {path: 'main', component: AdminComponent },
-    {path: '**', redirectTo: 'auth'}
-])
 
 @NgModule({
-    imports: [CommonModule, FormsModule, routing ],
+    imports: [CommonModule, FormsModule, RouterModule.forChild([
+        {path: "auth", component: AuthComponent },
+        {path: "main", component: AdminComponent },
+        {path: "**", redirectTo: "auth"}
+    ]) ],
     declarations: [AuthComponent, AdminComponent]
 })
-export class AdminModule {}
+export class AdminModule { }
