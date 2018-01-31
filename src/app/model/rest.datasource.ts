@@ -13,6 +13,8 @@ const PORT = 3501;
 export class RestDataSource {
     baseUrl: string;
     object: Observable<Product | Order >;
+    auth_token: string;
+
     constructor(private http: Http) {
         this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
     }
@@ -25,12 +27,29 @@ export class RestDataSource {
         return this.sendRequest(RequestMethod.Post, "orders", order).map(response => response.json());
     }
 
-    private sendRequest(verb: RequestMethod,
-            url: string, body?: Product | Order): Observable<Response> {
+    authenticate(user: string, pass: string):Observable<boolean>{
         return this.http.request(new Request({
+            method: RequestMethod.Post,
+            url: this.baseUrl + "login",
+            body: {name: user, password: pass }
+        })).map(response => {
+            let r = response.json();
+            this.auth_token = r.success ?  r.token : null;
+            return r.success;
+        })
+    }
+
+    private sendRequest(verb: RequestMethod,
+            url: string, body?: Product | Order,
+            auth: boolean = false): Observable<Response> {
+        let request = new Request({
             method: verb,
             url: this.baseUrl + url,
             body: body
-        }));
+        }) ;
+        if (auth && this.auth_token != null){
+            request.headers.set("Authorization", `Bearer<${this.auth_token}>`)
+        }
+        return this.http.request(request);
     }
 }
