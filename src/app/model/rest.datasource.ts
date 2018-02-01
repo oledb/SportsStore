@@ -49,7 +49,7 @@ export class RestDataSource {
     }
 
     updateOrder(order: Order): Observable<Order> {
-        return this.sendRequest(RequestMethod.Put, `orders/${order.id}`, null, true)
+        return this.sendRequest(RequestMethod.Put, `orders/${order.id}`, order, true)
         .map(r => r.json());
     }
 
@@ -61,7 +61,7 @@ export class RestDataSource {
         return this.http.request(new Request({
             method: RequestMethod.Post,
             url: this.baseUrl + "login",
-            body: {name: user, password: pass }
+            body: { name: user, password: pass }
         })).map(response => {
             let r = response.json();
             this.auth_token = r.success ?  r.token : null;
