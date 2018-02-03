@@ -1,0 +1,45 @@
+{
+  "name": "sportsstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oledb/SportsStore.git"
+  },
+  "author": "A.Kopeykin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oledb/SportsStore/issues"
+  },
+  "homepage": "https://github.com/oledb/SportsStore#readme",
+  "dependencies": {
+    "@angular/common": "5.2.3",
+    "@angular/compiler": "5.2.3",
+    "@angular/core": "5.2.3",
+    "@angular/platform-browser": "5.2.3",
+    "@angular/platform-browser-dynamic": "5.2.3",
+    "@angular/upgrade": "5.2.3",
+    "reflect-metadata": "0.1.12",
+    "rxjs": "5.5.6",
+    "zone.js": "0.8.20",
+    "core-js":"2.5.3",
+    "classlist.js": "1.1.20150312",
+    "systemjs": "0.20.19",
+    "bootstrap": "4.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "lite-server": "2.3.0",
+    "typescript": "2.7.1",
+    "typings": "2.1.1",
+    "concurrently":"3.5.1"
+  },
+  "scripts": {
+    "start": "concurrently \"npm runt tscwatch\" \"npm run lite\"",
+    "tsc": "tsc",
+    "tswatch": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install"
+  }
+}
