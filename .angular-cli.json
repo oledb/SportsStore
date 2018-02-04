@@ -3,6 +3,7 @@
   "project": {
     "name": "sport-store"
   },
+  
   "apps": [
     {
       "root": "src",
@@ -11,6 +12,7 @@
         "assets",
         "favicon.ico"
       ],
+      
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -19,7 +21,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
