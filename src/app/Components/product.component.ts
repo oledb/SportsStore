@@ -10,7 +10,7 @@ import { Product } from '../model/product.model';
 export class ProductComponent {
     model: Model = new Model();
 
-    infoStyle = 'bg-info text-white p-1 mt-1';
+    infoStyle = 'bg-success text-white p-1 mt-1';
 
     targetName = 'Kayak';
 
