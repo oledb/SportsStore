@@ -9,9 +9,23 @@ import { Product } from '../model/product.model';
 })
 export class ProductComponent {
     model: Model = new Model();
+    selectId: number;
+    link = 'https://github.com';
+    style =  {
+        decoration: 'none',
+        color: 'green'
+    }
+    iType: boolean;
+    constructor() {
+        this.selectId = 1;
+    }
 
     get count(): number {
         return this.model.getProducts().length;
+    }
+
+    get inputType(): string {
+        return this.iType ? 'text' : 'checkbox';
     }
 
     get isFull(): boolean {
@@ -24,5 +38,9 @@ export class ProductComponent {
 
     getProduct(id: number): Product {
         return this.model.getProduct(id);
+    }
+
+    changeType() {
+        this.iType = !this.iType;
     }
 }
