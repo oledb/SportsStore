@@ -9,38 +9,28 @@ import { Product } from '../model/product.model';
 })
 export class ProductComponent {
     model: Model = new Model();
-    selectId: number;
-    link = 'https://github.com';
-    style =  {
-        decoration: 'none',
-        color: 'green'
-    }
-    iType: boolean;
-    constructor() {
-        this.selectId = 1;
-    }
+
+    infoStyle = 'bg-info text-white p-1 mt-1';
+
+    targetName = 'Kayak';
 
     get count(): number {
-        return this.model.getProducts().length;
+        return this.getProducts().length;
     }
 
-    get inputType(): string {
-        return this.iType ? 'text' : 'checkbox';
-    }
-
-    get isFull(): boolean {
-        return this.model.getProducts().length > 5;
-    }
-
-    getProductStatus(): string {
-        return this.model.getProducts().length > 5 ? 'bg-success' : 'bg-warning';
+    getProductByPosition(position: number): Product {
+        return this.model.getProducts()[position];
     }
 
     getProduct(id: number): Product {
         return this.model.getProduct(id);
     }
 
-    changeType() {
-        this.iType = !this.iType;
+    getProducts(): Product[] {
+        return this.model.getProducts();
+    }
+
+    getProductCount(): number {
+        return this.count;
     }
 }

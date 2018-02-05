@@ -1,11 +1,15 @@
 <div>
-    There are <span class="text-white px-1" [ngClass]="getProductStatus()">{{count}}</span> products!
+    There are {{getProductCount()}} products!
 </div>
-<div class="p-1" [textContent]="'Name: ' + (model.getProduct(selectId)?.name || 'None')"></div>
-<div class="p-1">Name: {{model.getProduct(selectId)?.name || 'None'}}</div>
-<input [type]="(inputType)" value="Test">
-<div><button class="btn"
-            [class.btn-info]="inputType === 'text'"
-            [class.btn-warning]="inputType !== 'text'"
-            (click)="changeType()">Change</button></div>
-<a [attr.href]="link" [ngStyle]="style">{{link}}</a>
+<div *ngIf="getProductCount() > 4" [class]="infoStyle">
+    Threre are more than 4 products in the model
+</div>
+<div *ngIf="getProductByPosition(0).name !== 'Kayak'" [class]="infoStyle">
+    Text
+</div>
+<div [style.visibility]="getProductCount() > 4 ? 'none' : 'hidden'" [class]="infoStyle">
+    Attribute Threre are more than 4 products in the model
+</div>
+<div [style.visibility]="getProductByPosition(0).name !== 'Kayak' ? 'none' : 'hidden'" [class]="infoStyle">
+    Text
+</div>
