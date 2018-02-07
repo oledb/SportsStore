@@ -7,8 +7,10 @@
          <th>Category</th>
          <th>Price</th>
      </tr>
-     <tr *ngFor="let item of getProducts(); let i = index">
-         <td (mouseover)="selectProduct(item.id)">{{item.name}}</td>
+     <tr *ngFor="let item of getProducts(); let i = index" 
+        (click)="selectProduct(item.id)"
+        [class.selected]="item.id === selectedId ">
+         <td>{{item.name}}</td>
          <td>{{item.category}}</td>
          <td>{{item.price}}</td>
      </tr>

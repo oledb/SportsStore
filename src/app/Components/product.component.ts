@@ -8,8 +8,10 @@ import { Product } from '../model/product.model';
     templateUrl: './product.component.html'
 })
 export class ProductComponent {
+    selectedStyle = 'bg-success text-white';
+
     model: Model = new Model();
-    private selectedId: number;
+    selectedId: number;
 
     selectProduct(id: number) {
         this.selectedId = id;
