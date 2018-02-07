@@ -28,3 +28,10 @@
              [class.bg-success]="item.price < 30">{{item.price}}</td>
      </tr>
  </table>
+ <!-- ngTemplateOutlet -->
+ <ng-template #helloworld let-text="text">
+     <h4 class="p-1 bg-danger text-white">{{text}}</h4>
+ </ng-template>
+ <ng-template [ngTemplateOutlet]="helloworld"
+              [ngTemplateOutletContext]="{text: 'Hello world!'}">
+</ng-template>
