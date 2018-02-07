@@ -9,17 +9,14 @@ import { Product } from '../model/product.model';
 })
 export class ProductComponent {
     model: Model = new Model();
+    private selectedId: number;
 
-    infoStyle = 'bg-success text-white p-1 mt-1';
-
-    targetName = 'Kayak';
-
-    get count(): number {
-        return this.getProducts().length;
+    selectProduct(id: number) {
+        this.selectedId = id;
     }
 
-    getProductByPosition(position: number): Product {
-        return this.model.getProducts()[position];
+    get selected(): Product {
+        return this.getProduct(this.selectedId);
     }
 
     getProduct(id: number): Product {
@@ -28,9 +25,5 @@ export class ProductComponent {
 
     getProducts(): Product[] {
         return this.model.getProducts();
-    }
-
-    getProductCount(): number {
-        return this.count;
     }
 }
