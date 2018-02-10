@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Model } from '../model/repository.model';
 import { Product } from '../model/product.model';
 
@@ -19,7 +20,7 @@ export class ProductComponent {
     }
 
     get selected(): Product {
-        return  this.getProduct(this.selectedId);
+        return this.getProduct(this.selectedId);
     }
 
     getProduct(id: number): Product {
@@ -34,7 +35,39 @@ export class ProductComponent {
         return JSON.stringify(this.newProduct);
     }
 
-    addProduct(p: Product) {
-        console.log('New Product' + this.jsonProduct);
+    addProduct(form: NgForm) {
+        if (form.valid){
+            console.log('New Product' + this.jsonProduct);
+            this.newProduct = new Product();
+            form.reset();
+        }
+        
+    }
+
+    getValidationMessages(state: any, thingName?: string): string[] {
+        const thing: string = state.path || thingName;
+        const message: string[] = [];
+        if (state.errors) {
+            for (const errorName in state.errors) {
+                if (state.errors.hasOwnProperty(errorName)) {
+                    switch (errorName) {
+                        case 'required':
+                            message.push(`You must enter a ${thing}`);
+                            break;
+                        case 'minlength':
+                            message.push(`A ${thing} must be at least ${state.errors['minlength'].requiredLength}`);
+                            break;
+                        case 'pattern':
+                            message.push(`The ${thing} contains illegal character`);
+                            break;
+                        default:
+                            throw new Error(`Unkown property ${errorName}`);
+                    }
+                } else {
+                    throw new Error(`No property ${errorName}`);
+                }
+            }
+        }
+        return message;
     }
 }
