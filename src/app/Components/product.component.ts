@@ -8,17 +8,18 @@ import { Product } from '../model/product.model';
     templateUrl: './product.component.html'
 })
 export class ProductComponent {
-    selectedStyle = 'bg-success text-white';
 
     model: Model = new Model();
     selectedId: number;
 
+    newProduct = new Product();
+
     selectProduct(id: number) {
-        this.selectedId = id;
+        this.selectedId = +id;
     }
 
     get selected(): Product {
-        return this.getProduct(this.selectedId);
+        return  this.getProduct(this.selectedId);
     }
 
     getProduct(id: number): Product {
@@ -27,5 +28,13 @@ export class ProductComponent {
 
     getProducts(): Product[] {
         return this.model.getProducts();
+    }
+
+    get jsonProduct() {
+        return JSON.stringify(this.newProduct);
+    }
+
+    addProduct(p: Product) {
+        console.log('New Product' + this.jsonProduct);
     }
 }
