@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     Selected Product:
     <span class="px-1 bg-info text-white">{{selected?.name || 'No product'}}</span>
 </div>
@@ -14,7 +14,7 @@
         <td>{{item.price}}</td>
     </tr>
 </table>
-<div class="p-3 mb-2 border border-info text-info">Model Data: {{jsonProduct}}</div>
+<div class="p-3 mb-2 border border-info text-info">Model Data: {{jsonProduct}}</div> -->
 
 <style>
     input.ng-dirty.ng-invalid {
@@ -27,7 +27,7 @@
 </style>
 
 
-<form novalidate #form="ngForm" (ngSubmit)="addProduct(form)">
+<!-- <form novalidate #form="ngForm" (ngSubmit)="addProduct(form)">
     <div class="form-group">
         <label>Name</label>
         <input class="form-control" #name="ngModel" name="name" [(ngModel)]="newProduct.name" required minlength="5" pattern="^[A-Za-z ]+$">
@@ -41,5 +41,46 @@
         <label>Price</label>
         <input class="form-control" name="price" [(ngModel)]="newProduct.price">
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="form.submitted && form.invalid" [class.btn-secodary]="form.submitted && form.invalid">Create</button>
+    <button class="btn btn-primary" type="submit" 
+    [disabled]="form.submitted && form.invalid" 
+    [class.btn-secodary]="form.submitted && form.invalid">Create</button>
+</form> -->
+
+<form novalidate [formGroup]="form" (ngSubmit)="addProduct(form)" >
+    <div >
+        <div class="bg-danger text-white p-1 mb-1" *ngIf="formSubmitted && form.invalid">
+            There is problem with form
+            <ul *ngFor="let error of form.getFormValidationMessages()">
+                <li>{{error}}</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="newProduct.name" formControlName="name" />
+        <ul class="text-danger list-unstyled" *ngIf="formSubmitted || form.controls['name'].dirty && form.controls['name'].invalid">
+            <li *ngFor="let error of form.controls['name'].getValidationMessage()">{{error}}</li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="newProduct.category" formControlName="category" />
+        <ul class="text-danger list-unstyled" *ngIf="formSubmitted || form.controls['category'].dirty && form.controls['category'].invalid">
+            <li *ngFor="let error of form.controls['category'].getValidationMessage()">{{error}}</li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input type="text" class="form-control" name="price" [(ngModel)]="newProduct.price" formControlName="price" />
+        <ul class="text-danger list-unstyled" *ngIf="formSubmitted || form.controls['price'].dirty && form.controls['price'].invalid">
+            <li *ngFor="let error of form.controls['price'].getValidationMessage()">{{error}}</li>
+        </ul>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="formSubmitted && form.invalid" [class.btn-secodary]="formSubmitted && form.invalid">Create</button>
+
 </form>
