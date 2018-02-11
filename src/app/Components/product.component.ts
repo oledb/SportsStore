@@ -10,6 +10,6 @@ import { Product } from '../model/product.model';
 })
 export class ProductComponent {
 
-    model: Model = new Model();
+    myModel: Model = new Model();
     
 }

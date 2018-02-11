@@ -7,10 +7,8 @@ import { Product } from "../model/product.model";
     templateUrl: "./productTable.component.html"
 })
 export class ProductTableComponent {
-    @Input("model")
+    @Input("product-model")
     dataModel: Model;
-
-    text = "Table will go here, bro!";
 
     showTable: boolean = true;
 
