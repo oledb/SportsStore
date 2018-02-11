@@ -12,4 +12,8 @@ export class ProductComponent {
 
     myModel: Model = new Model();
     
+    addProduct(p: Product){
+        console.log(JSON.stringify(p));
+        this.myModel.addProduct(p);
+    }
 }

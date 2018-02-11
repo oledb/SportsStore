@@ -17,4 +17,9 @@ export class SimpleDataSource {
     getData(): Product[] {
         return this.data;
     }
+
+    addProduct(p: Product) {
+        this.data.push(p);
+        console.log(this.data);
+    }
 }

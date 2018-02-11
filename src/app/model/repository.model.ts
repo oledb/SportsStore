@@ -30,6 +30,6 @@ export class Model {
     addProduct(p: Product) {
         if (p.id !== 0) return;
         p.id = ++this.idCounter;
-        this.products.push(p);
+        this.dataSource.addProduct(p);
     }
 }

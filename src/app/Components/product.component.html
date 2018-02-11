@@ -1,26 +1,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 p-1">
-            <paProductForm></paProductForm>
+            <paProductForm (paNewProduct)="addProduct($event)" ></paProductForm>
         </div>
         <div class="col-sm-8 p-1">
             <paProductTable [product-model]="myModel"></paProductTable>
         </div>
     </div>
 </div>
-<!-- <div>
-    Selected Product:
-    <span class="px-1 bg-info text-white">{{selected?.name || 'No product'}}</span>
-</div>
-<table class="table table-sm bordered mt-1">
-    <tr class="bg-secondary text-white">
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
-    </tr>
-    <tr *ngFor="let item of getProducts(); let i = index" (click)="selectProduct(item.id)" [class.selected]="item.id === selectedId ">
-        <td>{{item.name}}</td>
-        <td>{{item.category}}</td>
-        <td>{{item.price}}</td>
-    </tr>
-</table> -->
