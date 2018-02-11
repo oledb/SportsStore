@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { ProductComponent } from './product.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductTableComponent } from "./productTable.component";
+import { ProductFormComponent } from "./productForm.component";
 
 @NgModule({
-    imports: [ BrowserModule, FormsModule, ReactiveFormsModule ],
+    imports: [ BrowserModule ],
     exports: [ProductComponent],
-    declarations: [ProductComponent]
+    declarations: [ ProductComponent, 
+        ProductFormComponent, 
+        ProductTableComponent ]
 })
 export class ProductModule {}
