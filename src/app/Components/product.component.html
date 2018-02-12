@@ -4,7 +4,9 @@
             <paProductForm (paNewProduct)="addProduct($event)" ></paProductForm>
         </div>
         <div class="col-sm-8 p-1">
-            <paProductTable [product-model]="myModel"></paProductTable>
+            <paToggleView>
+                    <paProductTable [product-model]="myModel"></paProductTable>
+            </paToggleView>
         </div>
     </div>
 </div>
