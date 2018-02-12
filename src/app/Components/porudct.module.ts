@@ -5,6 +5,7 @@ import { ProductTableComponent } from "./productTable.component";
 import { ProductFormComponent } from "./productForm.component";
 import { FormsModule } from "@angular/forms";
 import { PaToggleView } from "./toggleView.component";
+import { PaAddTaxPipe } from "./addTax.pipe";
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
@@ -12,6 +13,7 @@ import { PaToggleView } from "./toggleView.component";
     declarations: [ ProductComponent, 
         ProductFormComponent, 
         ProductTableComponent,
-        PaToggleView ]
+        PaToggleView,
+        PaAddTaxPipe ]
 })
 export class ProductModule {}
