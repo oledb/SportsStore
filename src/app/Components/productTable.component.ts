@@ -4,7 +4,8 @@ import { Product } from "../model/product.model";
 
 @Component({
     selector: "paProductTable",
-    templateUrl: "./productTable.component.html"
+    templateUrl: "./productTable.component.html",
+    styles: [`tr.data:hover {background-color: #007bff; color: white}`]
 })
 export class ProductTableComponent {
     @Input("product-model")

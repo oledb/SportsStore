@@ -4,7 +4,8 @@ import { NgForm } from "@angular/forms";
 
 @Component({
     selector: "paProductForm",
-    templateUrl: "productForm.component.html"
+    templateUrl: "productForm.component.html",
+    styles: ["label:hover {color: #0072C6}"]
 })
 export class ProductFormComponent {
     newProduct: Product = new Product();
@@ -23,6 +24,5 @@ export class ProductFormComponent {
         else {
             this.error = "Form is invalid!";
         }
-        
     }
 }
