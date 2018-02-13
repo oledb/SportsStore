@@ -11,7 +11,11 @@ export class ProductTableComponent {
     @Input("product-model")
     dataModel: Model;
 
+    categoryFilter: string = "Chess";
     showTable: boolean = true;
+    constructor() {
+        setInterval(() => {this.today = Date.now(); }, 1000);
+    }
 
     getProduct(id: number): Product {
         return this.dataModel.getProduct(id);
@@ -24,4 +28,5 @@ export class ProductTableComponent {
     deleteProduct(id: number) {
         this.dataModel.deleteProduct(id);
     }
+    today: number;
 }

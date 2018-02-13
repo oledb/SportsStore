@@ -4,10 +4,11 @@ import { PipeTransform } from "@angular/core/src/change_detection/pipe_transform
 
 @Pipe({
     name: "filter",
-    pure: true
+    pure: false
 })
-export class PaCtegoryFilterPipe implements PipeTransform {
+export class PaCategoryFilterPipe implements PipeTransform {
     transform(products: Product[], category: string): Product[] {
-        throw new Error("Method not implemented.");
+        return category == undefined || category == "All" ?
+            products : products.filter(p => p.category == category);
     }
-}
+} 

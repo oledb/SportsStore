@@ -2,9 +2,17 @@
     <label>Tax Rate:</label>
     <select [value]="taxRate || 0" (change)="taxRate=$event.target.value">
         <option value="0">None</option>
-        <option value="10">10%</option>
-        <option value="20">20%</option>
-        <option value="50">50%</option>
+        <option value="10">{{0.1 | percent}}</option>
+        <option value="20">{{0.2 | percent}}</option>
+        <option value="50">{{0.5 | percent}}</option>
+    </select>
+</div>
+<div><label>Category:</label>
+    <select [(ngModel)]="categoryFilter">
+        <option>All</option>
+        <option>Watersports</option>
+        <option>Soccer</option>
+        <option>Chess</option>
     </select>
 </div>
 
@@ -15,11 +23,12 @@
             <th>Price</th>
             <th></th>
         </tr>
-        <tr class="data" *ngFor="let item of getProducts(); let i = index">
+        <tr class="data" *ngFor="let item of getProducts() | filter:categoryFilter; let i = index">
             <td>{{item.name}}</td>
             <td>{{item.category}}</td>
-            <td>{{item.price | addTax: 15 | currency:"EUR":true}}</td>
+            <td>{{item.price | addTax: taxRate | currency:"GBP":true:"2.0-5"}}</td>
             <td class="text-center" ><button class="btn btn-danger btn-sm"
                 (click)="deleteProduct(item.id)">Delete</button></td>
         </tr>
 </table>
+<p>{{today | date:"hh:mm:ss"}}</p>
