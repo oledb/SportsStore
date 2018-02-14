@@ -10,6 +10,7 @@ import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
 import { PaDiscountDisplayComponent } from "./discountDisplay.component";
 import { PaDiscountEditorComponent } from "./discountEditor.component";
 import { DiscountService } from "./discount.service";
+import { PaDiscountPipe } from "./discount.pipe";
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
@@ -22,6 +23,7 @@ import { DiscountService } from "./discount.service";
         PaAddTaxPipe,
         PaCategoryFilterPipe,
         PaDiscountDisplayComponent,
-        PaDiscountEditorComponent ]
+        PaDiscountEditorComponent,
+        PaDiscountPipe ]
 })
 export class ProductModule {}

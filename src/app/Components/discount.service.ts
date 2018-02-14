@@ -9,10 +9,15 @@ export class DiscountService {
     }
 
     public set discount(newValue: number) {
-        this.discountValue = newValue || 0;
+        if (newValue <= 0)
+            this.discountValue = 0;
+        else if (newValue >= 30)
+            this.discountValue = 30;
+        else
+            this.discountValue = newValue;
     }
 
     public applyDiscount(price: number) {
-        return Math.max(price - this.discountValue, 5);
+        return price - (price * this.discountValue / 100);
     }
 }

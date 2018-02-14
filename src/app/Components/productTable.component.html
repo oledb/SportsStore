@@ -8,7 +8,7 @@
         <tr class="data" *ngFor="let item of getProducts(); let i = index">
             <td>{{item.name}}</td>
             <td>{{item.category}}</td>
-            <td>{{item.price | currency:"GBP":true:"2.0-5"}}</td>
+            <td>{{item.price | discount | currency:"GBP":true:"2.2-2"}}</td>
             <td class="text-center" ><button class="btn btn-danger btn-sm"
                 (click)="deleteProduct(item.id)">Delete</button></td>
         </tr>
