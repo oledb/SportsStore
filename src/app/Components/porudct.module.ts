@@ -9,10 +9,12 @@ import { PaAddTaxPipe } from "./addTax.pipe";
 import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
 import { PaDiscountDisplayComponent } from "./discountDisplay.component";
 import { PaDiscountEditorComponent } from "./discountEditor.component";
+import { DiscountService } from "./discount.service";
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
     exports: [ProductComponent],
+    providers: [ DiscountService ],
     declarations: [ ProductComponent, 
         ProductFormComponent, 
         ProductTableComponent,

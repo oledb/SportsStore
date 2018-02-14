@@ -5,11 +5,10 @@ import { DiscountService } from "./discount.service"
     selector: "paDiscountEditor",
     template: `<div class="form-group">
                 <label>Discount</label>
-                <input [(ngModel)]="discounter.discounter" 
+                <input [(ngModel)]="discounter.discount" 
                 class="form-control" type="number"/>
             </div>`
 })
 export class PaDiscountEditorComponent {
-    @Input("discounter")
-    discounter: DiscountService;
+    constructor(private discounter: DiscountService) { }
 }

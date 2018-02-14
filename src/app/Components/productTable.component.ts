@@ -1,7 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Model } from "../model/repository.model";
 import { Product } from "../model/product.model";
-import { DiscountService } from "./discount.service";
 
 @Component({
     selector: "paProductTable",
@@ -11,7 +10,6 @@ import { DiscountService } from "./discount.service";
 export class ProductTableComponent {
     @Input("product-model")
     dataModel: Model;
-    discounter: DiscountService = new DiscountService();
 
     categoryFilter: string = "Chess";
     showTable: boolean = true;
