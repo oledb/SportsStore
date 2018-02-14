@@ -3,11 +3,11 @@ import { DiscountService } from "./discount.service";
 
 @Component({
     selector: "paDiscountDisplay",
-    template: `<div class="bg-info p-a-1">
-            The discount is {{discounter.discount}}
+    template: `<div class="bg-info p-1 text-white">
+            The discount is {{discounter.discounter}}
             </div>`
 })
 export class PaDiscountDisplayComponent {
-    @Input("discount")
+    @Input("discounter")
     discounter: DiscountService;
 }

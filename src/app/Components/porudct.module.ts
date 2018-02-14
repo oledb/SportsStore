@@ -7,6 +7,8 @@ import { FormsModule } from "@angular/forms";
 import { PaToggleView } from "./toggleView.component";
 import { PaAddTaxPipe } from "./addTax.pipe";
 import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
+import { PaDiscountDisplayComponent } from "./discountDisplay.component";
+import { PaDiscountEditorComponent } from "./discountEditor.component";
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
@@ -16,6 +18,8 @@ import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
         ProductTableComponent,
         PaToggleView,
         PaAddTaxPipe,
-        PaCategoryFilterPipe ]
+        PaCategoryFilterPipe,
+        PaDiscountDisplayComponent,
+        PaDiscountEditorComponent ]
 })
 export class ProductModule {}

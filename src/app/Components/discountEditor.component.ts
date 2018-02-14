@@ -3,8 +3,13 @@ import { DiscountService } from "./discount.service"
 
 @Component({
     selector: "paDiscountEditor",
-    template: ``
+    template: `<div class="form-group">
+                <label>Discount</label>
+                <input [(ngModel)]="discounter.discounter" 
+                class="form-control" type="number"/>
+            </div>`
 })
-export class PaDiscountEditor{
-    
+export class PaDiscountEditorComponent {
+    @Input("discounter")
+    discounter: DiscountService;
 }
