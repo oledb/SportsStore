@@ -11,11 +11,13 @@ import { PaDiscountDisplayComponent } from "./discountDisplay.component";
 import { PaDiscountEditorComponent } from "./discountEditor.component";
 import { DiscountService } from "./discount.service";
 import { PaDiscountPipe } from "./discount.pipe";
+import { SimpleDataSource } from "../model/simple.datasource";
+import { Model } from "../model/repository.model";
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
     exports: [ProductComponent],
-    providers: [ DiscountService ],
+    providers: [ DiscountService, SimpleDataSource, Model ],
     declarations: [ ProductComponent, 
         ProductFormComponent, 
         ProductTableComponent,

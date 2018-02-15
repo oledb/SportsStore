@@ -10,7 +10,7 @@ import { Product } from '../model/product.model';
 })
 export class ProductComponent {
 
-    myModel: Model = new Model();
+    constructor(private myModel: Model) { }
     
     addProduct(p: Product){
         console.log(JSON.stringify(p));
