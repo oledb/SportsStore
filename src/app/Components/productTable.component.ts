@@ -8,8 +8,8 @@ import { Product } from "../model/product.model";
     styles: [`tr.data:hover {background-color: #007bff; color: white}`]
 })
 export class ProductTableComponent {
-    @Input("product-model")
-    dataModel: Model;
+    
+    constructor(private dataModel: Model) { }
 
     categoryFilter: string = "Chess";
     showTable: boolean = true;

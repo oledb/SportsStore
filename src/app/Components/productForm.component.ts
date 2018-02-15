@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { Product } from "../model/product.model";
 import { NgForm } from "@angular/forms";
+import { Model } from "../model/repository.model";
 
 @Component({
     selector: "paProductForm",
@@ -11,12 +12,11 @@ export class ProductFormComponent {
     newProduct: Product = new Product();
     error: string = "";
 
-    @Output("paNewProduct")
-    newProductEvent = new EventEmitter<Product>();
+    constructor(private model: Model) {}
 
     addProduct(form: NgForm) {
         if (form.valid){
-            this.newProductEvent.emit(this.newProduct);
+            this.model.addProduct(this.newProduct);
             this.error = "";
             this.newProduct = new Product();
             form.reset();
