@@ -13,11 +13,15 @@ import { DiscountService } from "./discount.service";
 import { PaDiscountPipe } from "./discount.pipe";
 import { SimpleDataSource } from "../model/simple.datasource";
 import { Model } from "../model/repository.model";
+import { LogService } from "./log.service";
 
 @NgModule({
     imports: [ BrowserModule, FormsModule ],
     exports: [ProductComponent],
-    providers: [ DiscountService, SimpleDataSource, Model ],
+    providers: [ DiscountService, 
+        SimpleDataSource, 
+        Model, 
+        LogService ],
     declarations: [ ProductComponent, 
         ProductFormComponent, 
         ProductTableComponent,
