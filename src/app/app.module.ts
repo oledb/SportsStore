@@ -6,16 +6,17 @@ import { ProductModule } from './Components/product.module'
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ // объявляет компоненты, каналы, директивы, необходимые данному модулю
     AppComponent
   ],
-  imports: [
+  imports: [ // импортирует модули, необходимые данному модулю
     BrowserModule,
     FormsModule,
     HttpModule,
     ProductModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [], // DI
+  exports: [], // Компоненты, доступные для импорта в других модулях
+  bootstrap: [AppComponent] // корневой компонент приложения
 })
 export class AppModule { }
