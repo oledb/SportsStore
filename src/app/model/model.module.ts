@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
-import { SimpleDataSource } from "./simple.datasource";
+import { StaticDataSource } from "./static.datasource";
 import { Model } from "./repository.model";
 
 @NgModule({
-    providers: [Model, SimpleDataSource]
+    providers: [Model, StaticDataSource]
 })
 export class ModelModule { }
