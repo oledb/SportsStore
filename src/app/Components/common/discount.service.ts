@@ -1,5 +1,5 @@
 import { Injectable, Inject, Optional } from "@angular/core";
-import { LogService, LOG, SLOG } from "app/Components/log.service";
+import { LogService, LOG, SLOG } from "./log.service";
 
 @Injectable()
 export class DiscountService {

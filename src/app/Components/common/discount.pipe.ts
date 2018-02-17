@@ -1,5 +1,5 @@
 import { Pipe, Injectable } from "@angular/core";
-import { DiscountService } from "../discount.service";
+import { DiscountService } from "./discount.service";
 import { PipeTransform } from "@angular/core/src/change_detection/pipe_transform";
 
 @Pipe({
