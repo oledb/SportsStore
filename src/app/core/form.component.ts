@@ -22,6 +22,7 @@ export class FormComponent {
             @Inject(SHARED_STATE) private stateEvents: Observable<SharedState>) {
                 stateEvents
                 .subscribe((update) => {
+                    this.editing = update.mode == MODES.EDIT;
                     this.product = new Product();
                     if (update.id != undefined) {
                         Object.assign(this.product, this.model.getProduct(update.id));
