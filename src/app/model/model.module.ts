@@ -1,9 +1,12 @@
 import { NgModule } from "@angular/core";
-import { StaticDataSource } from "./static.datasource";
+import { NetworkConfig } from "../config/NetworkConfig";
 import { HttpModule } from "@angular/http";
 import { Model } from "./repository.model";
+import { RestDataSource, REST_URL } from "./rest.datasource";
 
 @NgModule({
-    providers: [Model, StaticDataSource]
+    imports: [HttpModule],
+    providers: [Model, RestDataSource,
+    { provide: REST_URL, useValue: NetworkConfig.ProductUrl }]
 })
 export class ModelModule { }
