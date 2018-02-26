@@ -7,9 +7,12 @@ import { FormComponent } from "./core/form.component";
 import { MessageModule } from "./messages/message.module";
 import { MessageComponent } from "./messages/message.component";
 import { RouterModule } from "@angular/router";
+import { routing } from "./app.routing";
+import { AppComponent } from "./app.component";
 
 @NgModule({
-    imports: [BrowserModule, ModelModule, CoreModule, MessageModule, RouterModule ],
-    bootstrap: [TableComponent, FormComponent, MessageComponent]
+    imports: [BrowserModule, ModelModule, CoreModule, MessageModule, RouterModule, routing ],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
