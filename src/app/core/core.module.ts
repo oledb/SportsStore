@@ -11,6 +11,7 @@ import { MessageService } from "../messages/message.service";
 import { Message } from "../messages/message.model";
 import { Model } from "../model/repository.model";
 import { MODES } from "./sharedState.model";
+import { RouterModule } from "@angular/router";
 
 const messageProvider = {
     provide: SHARED_STATE,
@@ -26,7 +27,7 @@ const messageProvider = {
 }
 
 @NgModule({
-    imports: [ BrowserModule, FormsModule, ModelModule, MessageModule ],
+    imports: [ BrowserModule, FormsModule, ModelModule, MessageModule, RouterModule ],
     declarations: [ TableComponent, FormComponent ],
     exports: [ ModelModule, TableComponent, FormComponent ],
     providers: [ messageProvider ]
