@@ -6,9 +6,10 @@ import { TableComponent } from "./core/table.component";
 import { FormComponent } from "./core/form.component";
 import { MessageModule } from "./messages/message.module";
 import { MessageComponent } from "./messages/message.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
-    imports: [BrowserModule, ModelModule, CoreModule, MessageModule],
+    imports: [BrowserModule, ModelModule, CoreModule, MessageModule, RouterModule ],
     bootstrap: [TableComponent, FormComponent, MessageComponent]
 })
 export class AppModule { }
